@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <script type="text/javascript" src="../GComp.js"></script>
+    <script type="text/javascript">
+        function run() {
+            gridMgr = new GComp.GChordManager();
+            gridMgr.draw($('gridManager'));
+        }
+    </script>
+    <style>
+      #chord { width: 100px; height: 180px;}
+    </style>
+  </head>
+  <body onload="run()">
+  	<div id="gridManager"></div>
+  </body>
+</html>

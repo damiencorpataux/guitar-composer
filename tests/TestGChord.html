@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <script type="text/javascript" src="../GComp.js"></script>
+    <script type="text/javascript">
+        function run() {
+            chord = new GComp.GChord(1);
+            chord.bind('click', function(evt, chord) {
+        	    showNotes(chord);        	    
+            });
+            chord.draw($('chord'));
+            chord.setFromPositions([
+				new GComp.GChordPosition(1,0),
+				new GComp.GChordPosition(2,0),
+				new GComp.GChordPosition(3,0),
+				new GComp.GChordPosition(4,0),
+				new GComp.GChordPosition(5,0),
+				new GComp.GChordPosition(6,0),
+                new GComp.GChordPosition(2,1),
+                new GComp.GChordPosition(3,2),
+				new GComp.GChordPosition(4,3)
+            ]);
+//            chord.shiftViewPort(1);
+
+			  showNotes(chord);
+        }
+        
+        function showNotes(chord) {
+            var notes = chord.getNotes();
+            var str = '&nbsp;';
+            $A(notes).each(function(note) {
+                str = str + note.getName() + ' ';
+            });
+			$('chordDesc').innerHTML = str;
+            $('chordToString').innerHTML = chord.toString();
+        }
+    </script>
+    <style>
+      #chord { width: 100px; height: 180px;}
+    </style>
+  </head>
+  <body onload="run()">
+  	<div id="chord"></div>
+  	<h3>Notes</h3>
+  	<div id="chordDesc"></div>
+  	<pre id="chordToString"></pre>
+  </body>
+</html>
